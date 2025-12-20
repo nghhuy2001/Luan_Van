@@ -29,6 +29,7 @@ public class BrandServiceIMPL implements BrandService {
             throw  new DuplicateResourceException("Name brand is existing !");
         }
         Brand brand = brandMapper.toEntity(brandDTO);
+        brand.setActive(true);
         Brand saved = brandRepository.save(brand);
         return brandMapper.toDTO(saved);
     }

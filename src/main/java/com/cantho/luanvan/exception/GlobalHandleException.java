@@ -80,7 +80,7 @@ public class GlobalHandleException {
             HttpServletRequest request
     ) {
         return buildErrorResponse(
-                "Internal server error",
+                ex.getMessage(),
                 HttpStatus.INTERNAL_SERVER_ERROR,
                 request
         );
