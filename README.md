@@ -137,7 +137,7 @@ Mục tiêu của đề tài là kết hợp **phát triển web hiện đại**
 ---
 
 ## Cơ sở dữ liệu đã thiết kế
-<img width="1375" height="926" alt="csdl lv " src="https://github.com/user-attachments/assets/0e66c2e8-9e3b-4194-8157-b1d599d3596e" />
+![csdl_lv .png](csdl_lv%20.png)
 
 
 

@@ -1,4 +1,4 @@
-package com.cantho.luanvan.entity;
+package com.cantho.luanvan.enums;
 
 public enum PaymentMethodType {
     COD,

@@ -24,4 +24,9 @@ public class ImportReceiptItem {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "import_receipt_id", referencedColumnName = "id")
     private ImportReceipt importReceipt;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    private Product product;
+
 }
