@@ -1,14 +1,14 @@
-package com.cantho.luanvan.service.serviceIMPL;
+package com.cantho.luanvan.service.impl;
 
 import com.cantho.luanvan.dto.request.CustomerAddressDTO;
-import com.cantho.luanvan.dto.request.CustomerDTO;
 import com.cantho.luanvan.entity.Customer;
 import com.cantho.luanvan.entity.CustomerAddress;
+import com.cantho.luanvan.exception.common.ResourceNotFoundException;
 import com.cantho.luanvan.mapper.CustomerAddressMapper;
 import com.cantho.luanvan.mapper.CustomerMapper;
 import com.cantho.luanvan.repository.CustomerAddressRepository;
-import com.cantho.luanvan.service.CustomerAddressService;
-import com.cantho.luanvan.service.CustomerService;
+import com.cantho.luanvan.repository.CustomerRepository;
+import com.cantho.luanvan.service.domain.CustomerAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,15 +21,16 @@ public class CustomerAddressServiceIMPL implements CustomerAddressService {
     @Autowired
     private CustomerAddressMapper customerAddressMapper;
     @Autowired
-    private CustomerService customerService;
+    private CustomerRepository customerRepository;
     @Autowired
     private CustomerMapper customerMapper;
 
 
     @Override
     public CustomerAddressDTO createCustomerAddressWithIdCustomer(Long idCustomer, CustomerAddressDTO customerAddressDTO) {
-        CustomerDTO customerDTO = customerService.getCustomerById(idCustomer);
-        Customer customer = customerMapper.toEntity(customerDTO);
+        Customer customer = customerRepository.getCustomerById(idCustomer).orElseThrow(
+                () -> new ResourceNotFoundException("Không tìm thấy khách hàng với ID: "+idCustomer)
+        );
 
         CustomerAddress customerAddress = CustomerAddress.builder()
                 .nameAddress(customerAddressDTO.getNameAddress())

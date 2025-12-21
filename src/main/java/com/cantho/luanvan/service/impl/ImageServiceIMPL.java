@@ -1,11 +1,11 @@
-package com.cantho.luanvan.service.serviceIMPL;
+package com.cantho.luanvan.service.impl;
 
 import com.cantho.luanvan.dto.request.ImageDTO;
 import com.cantho.luanvan.entity.Image;
 import com.cantho.luanvan.exception.common.ResourceNotFoundException;
 import com.cantho.luanvan.mapper.ImageMapper;
 import com.cantho.luanvan.repository.ImageRepository;
-import com.cantho.luanvan.service.ImageService;
+import com.cantho.luanvan.service.domain.ImageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

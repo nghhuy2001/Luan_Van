@@ -1,5 +1,6 @@
 package com.cantho.luanvan.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -19,13 +20,14 @@ public class ImportReceiptItem {
     private Long id;
     private int quantityImport;
     @Column(name = "unit_price", precision = 15, scale = 2)
-    private BigDecimal UnitPrice;
+    private BigDecimal unitPrice;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnore
     @JoinColumn(name = "import_receipt_id", referencedColumnName = "id")
     private ImportReceipt importReceipt;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     private Product product;
 

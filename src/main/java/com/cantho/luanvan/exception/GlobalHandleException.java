@@ -1,6 +1,7 @@
 package com.cantho.luanvan.exception;
 
 import com.cantho.luanvan.exception.common.DuplicateResourceException;
+import com.cantho.luanvan.exception.common.NotImplementedException;
 import com.cantho.luanvan.exception.common.ResourceNotFoundException;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.servlet.http.HttpServletRequest;
@@ -50,6 +51,14 @@ public class GlobalHandleException {
                 status
         );
     }
+    @ExceptionHandler(NotImplementedException.class)
+    public ResponseEntity<ApiErrorResponse> handleNotImplementedException(
+            NotImplementedException ex,
+            HttpServletRequest request
+    ) {
+        return buildErrorResponse(ex.getMessage(), HttpStatus.NOT_IMPLEMENTED, request);
+    }
+
 
     @ExceptionHandler(ResourceNotFoundException.class)
     public ResponseEntity<ApiErrorResponse> handleResourceNotFoundException(ResourceNotFoundException ex,  HttpServletRequest request){

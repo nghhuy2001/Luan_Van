@@ -1,4 +1,4 @@
-package com.cantho.luanvan.service.serviceIMPL;
+package com.cantho.luanvan.service.impl;
 
 import com.cantho.luanvan.dto.request.SupplierDTO;
 import com.cantho.luanvan.entity.Supplier;
@@ -6,7 +6,7 @@ import com.cantho.luanvan.exception.common.DuplicateResourceException;
 import com.cantho.luanvan.exception.common.ResourceNotFoundException;
 import com.cantho.luanvan.mapper.SupplierMapper;
 import com.cantho.luanvan.repository.SupplierRepository;
-import com.cantho.luanvan.service.SupplierService;
+import com.cantho.luanvan.service.domain.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

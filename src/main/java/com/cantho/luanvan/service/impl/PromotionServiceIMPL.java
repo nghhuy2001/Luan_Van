@@ -1,4 +1,4 @@
-package com.cantho.luanvan.service.serviceIMPL;
+package com.cantho.luanvan.service.impl;
 
 import com.cantho.luanvan.dto.request.PromotionDTO;
 import com.cantho.luanvan.entity.Promotion;
@@ -6,7 +6,7 @@ import com.cantho.luanvan.exception.common.DuplicateResourceException;
 import com.cantho.luanvan.exception.common.ResourceNotFoundException;
 import com.cantho.luanvan.mapper.PromotionMapper;
 import com.cantho.luanvan.repository.PromotionRepository;
-import com.cantho.luanvan.service.PromotionService;
+import com.cantho.luanvan.service.domain.PromotionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

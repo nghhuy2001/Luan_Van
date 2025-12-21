@@ -1,4 +1,4 @@
-package com.cantho.luanvan.service;
+package com.cantho.luanvan.service.domain;
 
 import com.cantho.luanvan.dto.request.CustomerDTO;
 import org.springframework.data.domain.Page;

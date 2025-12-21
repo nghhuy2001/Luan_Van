@@ -12,7 +12,7 @@ spring:
       ddl-auto: update
     show-sql: true
 
-#cloudinary:
-#  cloud-name: dp0tcvlag
-#  api-key: 929913749946788
-#  api-secret: _bgXach9hiqwxu9JfU8mPTPhYFo
+cloudinary:
+  cloud-name: dp0tcvlag
+  api-key: 929913749946788
+  api-secret: _bgXach9hiqwxu9JfU8mPTPhYFo

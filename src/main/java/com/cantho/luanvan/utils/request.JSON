@@ -1,0 +1,29 @@
+{
+  "supplierId": 1,
+  "employeeId": 3,
+  "importDate": "21-12-2025",
+  "items": [
+    {
+      "productId": null,
+      "productInfo": {
+        "name": "Laptop Dell XPS",
+        "ram": 16,
+        "storage": 512,
+        "cpu": "i7-1360P",
+        "price": 32000000,
+        "brandId": 2
+      },
+      "images": [
+        { "imageUrl": "...", "publicId": "..." },
+        { "imageUrl": "...", "publicId": "..." }
+      ],
+      "quantityImport": 10,
+      "unitPrice": 28000000
+    },
+    {
+      "productId": 5,
+      "quantityImport": 3,
+      "unitPrice": 15000000
+    }
+  ]
+}

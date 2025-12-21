@@ -3,7 +3,7 @@ package com.cantho.luanvan.controller;
 import com.cantho.luanvan.dto.request.SupplierDTO;
 import com.cantho.luanvan.dto.response.PageResponse;
 import com.cantho.luanvan.dto.response.PrimaryResponse;
-import com.cantho.luanvan.service.SupplierService;
+import com.cantho.luanvan.service.domain.SupplierService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

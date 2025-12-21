@@ -1,8 +1,6 @@
-package com.cantho.luanvan.service;
+package com.cantho.luanvan.service.domain;
 
 import com.cantho.luanvan.dto.request.BrandDTO;
-import com.cantho.luanvan.dto.response.PageResponse;
-import com.cantho.luanvan.entity.Brand;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 

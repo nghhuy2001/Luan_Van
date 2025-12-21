@@ -11,6 +11,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class ImageDTO {
     private Long id;
-    private String url;
-    private String urlId; // id cua anh  Cloudinary
+    private String imageUrl;
+    private String publicId; // id cua anh  Cloudinary
 }

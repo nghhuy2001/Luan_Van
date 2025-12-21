@@ -15,8 +15,8 @@ public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String url;
-    private String urlId; // id cua anh  Cloudinary
+    private String imageUrl; // luu vao db
+    private String publicId; // id cua anh  Cloudinary
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "product_id", referencedColumnName = "id")
