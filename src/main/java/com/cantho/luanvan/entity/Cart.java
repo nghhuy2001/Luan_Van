@@ -1,5 +1,6 @@
 package com.cantho.luanvan.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,8 +25,9 @@ public class Cart {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    @JsonIgnore
     private Customer customer;
 
-    @OneToMany(mappedBy = "cart", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cart", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<CartItem> cartItems = new ArrayList<>();
 }
