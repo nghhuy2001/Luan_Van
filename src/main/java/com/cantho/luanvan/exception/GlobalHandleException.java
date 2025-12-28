@@ -1,5 +1,6 @@
 package com.cantho.luanvan.exception;
 
+import com.cantho.luanvan.exception.common.BusinessException;
 import com.cantho.luanvan.exception.common.DuplicateResourceException;
 import com.cantho.luanvan.exception.common.NotImplementedException;
 import com.cantho.luanvan.exception.common.ResourceNotFoundException;
@@ -81,6 +82,15 @@ public class GlobalHandleException {
                 .getDefaultMessage();
 
         return buildErrorResponse(message, HttpStatus.BAD_REQUEST, request);
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<ApiErrorResponse> handleBusinessException(BusinessException ex, HttpServletRequest request){
+        return buildErrorResponse(
+                ex.getMessage(),
+                HttpStatus.BAD_REQUEST,
+                request
+        );
     }
 
     @ExceptionHandler(Exception.class)

@@ -12,6 +12,8 @@ public interface ImportReceiptService {
     ImportReceipt initReceipt(Long supplierId, Long employeeId);
     void addItem(ImportReceipt receipt, Product product, int quantity, BigDecimal unitPrice);
     ImportReceipt save(ImportReceipt receipt);
+
+
     /*-------------------------------------------------------------------------------------------*/
     Page<ImportReceiptDTO> getAllReceipt(Pageable pageable);
 }

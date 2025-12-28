@@ -45,7 +45,7 @@ public class ImportReceiptApplicationService {
                 product.setPrice(item.getUnitPrice());
             }
 
-
+            // doan nay thay bang ham addItem (khi nao ranh roi thay sau cung duocj)
             ImportReceiptItem importReceiptItem = ImportReceiptItem.builder()
                     .importReceipt(importReceipt)
                     .product(product)

@@ -14,6 +14,11 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(
+        uniqueConstraints = @UniqueConstraint(
+                columnNames = {"product_id", "order_id", "customer_id"}
+        )
+)
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -67,4 +67,11 @@ public class Product {
         this.stock += quantity;
     }
 
+    public void decreaseStock(int quantity){
+        if(this.stock - quantity < 0){
+            throw new IllegalArgumentException("Kho không đủ số lượng !");
+        }
+        this.stock = this.stock - quantity;
+    }
+
 }
