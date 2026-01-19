@@ -24,6 +24,7 @@ public class Product {
     private int ram;
     private int storage;
     private String cpu;
+    private String thumbnail;
     private String screenSize;
     private String gpu;
     @Lob

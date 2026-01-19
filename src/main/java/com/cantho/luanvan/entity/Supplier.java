@@ -21,6 +21,7 @@ public class Supplier {
     private String name;
     private String phone;
     private String email;
+    private boolean active;
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "supplier")
     private List<ImportReceipt> importReceipts = new ArrayList<>();

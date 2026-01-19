@@ -19,5 +19,5 @@ public class PrimaryResponse<T> {
     private String message;
     @JsonFormat(pattern = "HH:mm:ss dd-MM-yyyy")
     private LocalDateTime timestamp;
-    private T data;
+    private T content;
 }

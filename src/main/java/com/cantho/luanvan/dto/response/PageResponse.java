@@ -23,5 +23,5 @@ public class PageResponse<T> {
     private long totalElements;
     private int currentPage;
     private boolean isLast;
-    private List<T> data;
+    private List<T> content;
 }

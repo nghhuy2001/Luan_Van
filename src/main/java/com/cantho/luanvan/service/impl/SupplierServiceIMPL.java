@@ -32,18 +32,34 @@ public class SupplierServiceIMPL implements SupplierService {
 
         // handle save
         Supplier supplier = supplierMapper.toEntity(supplierDTO);
+        supplier.setActive(true);
         Supplier saved = supplierRepository.save(supplier);
         return supplierMapper.toDTO(saved);
     }
 
     @Override
     public SupplierDTO updateSupplier(Long id, SupplierDTO supplierDTO) {
-        return null;
+        Supplier supplier = supplierRepository.getSupplierById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Not found supplier with id: "+ id)
+        );
+
+        supplier.setName(supplierDTO.getName());
+        supplier.setEmail(supplierDTO.getEmail());
+        supplier.setPhone(supplierDTO.getPhone());
+        supplier.setActive(supplierDTO.isActive());
+
+        supplierRepository.save(supplier);
+
+        return supplierMapper.toDTO(supplier);
     }
 
     @Override
     public void deleteSupplier(Long id) {
-
+        Supplier supplier = supplierRepository.getSupplierById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Not found supplier with id: "+ id)
+        );
+        supplier.setActive(false);
+        supplierRepository.save(supplier);
     }
 
     @Override

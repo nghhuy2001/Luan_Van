@@ -28,7 +28,7 @@ public class CustomerController {
                 .status(HttpStatus.CREATED.value())
                 .message("Khách hàng mới được tạo thành công !")
                 .timestamp(LocalDateTime.now())
-                .data(customerService.createCustomer(customerDTO))
+                .content(customerService.createCustomer(customerDTO))
                 .build(), HttpStatus.CREATED);
     }
 
@@ -46,7 +46,7 @@ public class CustomerController {
                 .totalPages(customerDTOS.getTotalPages())
                 .currentPage(customerDTOS.getNumber())
                 .isLast(customerDTOS.isLast())
-                .data(customerDTOS.getContent())
+                .content(customerDTOS.getContent())
                 .build(), HttpStatus.OK);
     }
 }

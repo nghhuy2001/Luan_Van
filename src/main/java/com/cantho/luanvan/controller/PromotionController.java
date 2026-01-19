@@ -28,7 +28,7 @@ public class PromotionController {
                 .status(HttpStatus.CREATED.value())
                 .message("Add new promotion successfully !")
                 .timestamp(LocalDateTime.now())
-                .data(promotionService.createNewPromotion(promotionDTO))
+                .content(promotionService.createNewPromotion(promotionDTO))
                 .build(), HttpStatus.CREATED);
     }
 
@@ -46,7 +46,7 @@ public class PromotionController {
                 .totalElements(promotionDTOS.getTotalElements())
                 .currentPage(promotionDTOS.getNumber())
                 .isLast(promotionDTOS.isLast())
-                .data(promotionDTOS.getContent())
+                .content(promotionDTOS.getContent())
                 .build(),HttpStatus.OK);
     }
 
@@ -57,7 +57,7 @@ public class PromotionController {
                 .status(HttpStatus.OK.value())
                 .message("Get promotion with id: "+ id + " successfully !")
                 .timestamp(LocalDateTime.now())
-                .data(promotionService.getPromotionById(id))
+                .content(promotionService.getPromotionById(id))
                 .build(), HttpStatus.OK);
     }
 }

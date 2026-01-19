@@ -28,7 +28,7 @@ public class SupplierController {
                 .status(HttpStatus.CREATED.value())
                 .message("Add new supplier successfully !")
                 .timestamp(LocalDateTime.now())
-                .data(supplierService.createNewSupplier(supplierDTO))
+                .content(supplierService.createNewSupplier(supplierDTO))
                 .build(), HttpStatus.CREATED);
     }
 
@@ -46,7 +46,29 @@ public class SupplierController {
                 .totalElements(result.getTotalElements())
                 .currentPage(result.getNumber())
                 .isLast(result.isLast())
-                .data(result.getContent())
+                .content(result.getContent())
                 .build(), HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<PrimaryResponse<SupplierDTO>> doUpdate(@PathVariable long id,
+                                                                 @RequestBody @Valid SupplierDTO supplierDTO){
+        return new ResponseEntity<>(PrimaryResponse.<SupplierDTO>builder()
+                .success(true)
+                .status(HttpStatus.OK.value())
+                .message("Update successfully !")
+                .timestamp(LocalDateTime.now())
+                .content(supplierService.updateSupplier(id, supplierDTO))
+                .build(), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> doDelete(@PathVariable long id){
+        supplierService.deleteSupplier(id);
+        return new ResponseEntity<>(PrimaryResponse.builder()
+                .success(true)
+                .status(HttpStatus.NO_CONTENT.value())
+                .message("Delete supplier successfully !")
+                .build(), HttpStatus.NO_CONTENT);
     }
 }

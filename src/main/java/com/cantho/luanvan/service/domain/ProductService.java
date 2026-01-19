@@ -13,9 +13,11 @@ public interface ProductService {
     Product createProduct(ProductDTO productDTO);
     ProductDTO getProductById(Long id);
     ProductDTO updateProduct(Long id, ProductDTO productDTO);
+    ProductDTO updateStatusProduct(Long id, boolean active);
     void deleteProduct(Long id);
 
+
     Page<ProductDTO> getAllProduct(Pageable pageable);
-    Page<ProductDTO> getAllProductActive(Pageable papPageable);
+    Page<ProductDTO> getAllProductActive(Pageable papPageable, boolean active);
     Page<ProductDTO> getProductByIdBrand(Pageable pageable, long idBrand);
 }

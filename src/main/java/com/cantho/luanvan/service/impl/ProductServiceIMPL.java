@@ -66,6 +66,7 @@ public class ProductServiceIMPL implements ProductService {
                     .build();
             images.add(image);
         }
+        product.setThumbnail(images.get(0).getImageUrl());
         product.setImages(images);
 
         return productRepository.save(product);
@@ -73,7 +74,10 @@ public class ProductServiceIMPL implements ProductService {
 
     @Override
     public ProductDTO getProductById(Long id) {
-        return null;
+        Product product = productRepository.getProductById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Không tìm thấy sản phẩm với id: "+ id)
+        );
+        return productMapper.toDTO(product);
     }
 
     @Override
@@ -82,8 +86,21 @@ public class ProductServiceIMPL implements ProductService {
     }
 
     @Override
-    public void deleteProduct(Long id) {
+    public ProductDTO updateStatusProduct(Long id, boolean active) {
+        Product product = productRepository.getProductById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Không tìm thấy sản phẩm với id: "+ id)
+        );
+        product.setActive(active);
+        productRepository.save(product);
+        return productMapper.toDTO(product);
+    }
 
+    @Override
+    public void deleteProduct(Long id) {
+        Product product = productRepository.getProductById(id).orElseThrow(
+                () -> new ResourceNotFoundException("Không tìm thấy sản phẩm với id: "+ id)
+        );
+        product.setActive(false);
     }
 
     @Override
@@ -93,12 +110,16 @@ public class ProductServiceIMPL implements ProductService {
     }
 
     @Override
-    public Page<ProductDTO> getAllProductActive(Pageable papPageable) {
-        return null;
+    public Page<ProductDTO> getAllProductActive(Pageable papPageable, boolean active) {
+        return productRepository.getProductsByActive(active, papPageable).map(productMapper::toDTO);
     }
 
     @Override
     public Page<ProductDTO> getProductByIdBrand(Pageable pageable, long idBrand) {
-        return null;
+        boolean isBrand = brandRepository.existsById(idBrand);
+        if(!isBrand)
+            throw new ResourceNotFoundException("Không tìm thấy thương hiệu với id: "+ idBrand);
+
+        return productRepository.getProductsByBrand_Id(idBrand, pageable).map(productMapper::toDTO);
     }
 }

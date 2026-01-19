@@ -33,7 +33,7 @@ public class ImportReceiptController {
                 .status(HttpStatus.CREATED.value())
                 .message("Tạo phiếu nhập thành công !")
                 .timestamp(LocalDateTime.now())
-                .data(importReceiptApplicationService.createImportReceipt(importReceiptDTO))
+                .content(importReceiptApplicationService.createImportReceipt(importReceiptDTO))
                 .build(), HttpStatus.CREATED);
     }
 
@@ -51,7 +51,7 @@ public class ImportReceiptController {
                 .totalPages(result.getTotalPages())
                 .currentPage(result.getNumber())
                 .isLast(result.isLast())
-                .data(result.getContent())
+                .content(result.getContent())
                 .build(),HttpStatus.OK);
     }
 }

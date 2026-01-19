@@ -26,7 +26,7 @@ public class CartController {
                 .status(HttpStatus.CREATED.value())
                 .message("Thêm sản phẩm vào giỏ hàng thành công !")
                 .timestamp(LocalDateTime.now())
-                .data(cartService.addNewProductIntoCart(productId, quantity, idCustomer))
+                .content(cartService.addNewProductIntoCart(productId, quantity, idCustomer))
                 .build(), HttpStatus.CREATED);
     }
 
@@ -37,7 +37,7 @@ public class CartController {
                 .status(HttpStatus.OK.value())
                 .message("Lấy thông tin giỏ hàng thành công !")
                 .timestamp(LocalDateTime.now())
-                .data(cartService.getCartByIdCustomer(idCustomer))
+                .content(cartService.getCartByIdCustomer(idCustomer))
                 .build(), HttpStatus.OK);
     }
 
@@ -49,7 +49,7 @@ public class CartController {
                 .status(HttpStatus.OK.value())
                 .message("Xóa sản phẩm khỏi giỏ hàng thành công !")
                 .timestamp(LocalDateTime.now())
-                .data(cartService.deleteProductInCart(productId, idCustomer))
+                .content(cartService.deleteProductInCart(productId, idCustomer))
                 .build(),HttpStatus.OK);
     }
 }

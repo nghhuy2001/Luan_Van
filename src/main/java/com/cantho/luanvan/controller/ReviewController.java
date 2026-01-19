@@ -30,7 +30,7 @@ public class ReviewController {
                 .status(HttpStatus.CREATED.value())
                 .message("Đánh giá sản phẩm thành công !")
                 .timestamp(LocalDateTime.now())
-                .data(reviewOrderApplicationService.doHandle(reviewDTO))
+                .content(reviewOrderApplicationService.doHandle(reviewDTO))
                 .build(), HttpStatus.CREATED);
     }
 
@@ -49,7 +49,7 @@ public class ReviewController {
                 .currentPage(result.getNumber())
                 .totalElements(result.getTotalElements())
                 .totalPages(result.getTotalPages())
-                .data(result.getContent())
+                .content(result.getContent())
                 .build(), HttpStatus.OK);
     }
 }

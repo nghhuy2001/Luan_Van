@@ -29,7 +29,7 @@ public class OrderController {
                 .status(HttpStatus.CREATED.value())
                 .message("Tạo đơn hàng thành công !")
                 .timestamp(LocalDateTime.now())
-                .data(createOrderApplicationService.createOrder(orderDTO))
+                .content(createOrderApplicationService.createOrder(orderDTO))
                 .build(), HttpStatus.CREATED);
     }
 
@@ -47,7 +47,7 @@ public class OrderController {
                 .currentPage(result.getNumber())
                 .totalPages(result.getTotalPages())
                 .totalElements(result.getTotalElements())
-                .data(result.getContent())
+                .content(result.getContent())
                 .build(), HttpStatus.OK);
     }
 }

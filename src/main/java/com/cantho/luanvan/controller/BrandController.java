@@ -28,7 +28,7 @@ public class BrandController {
                 .status(HttpStatus.OK.value())
                 .message("Add new brand successfully !")
                 .timestamp(LocalDateTime.now())
-                .data(brandService.createNewBrand(brandDTO))
+                .content(brandService.createNewBrand(brandDTO))
                 .build(), HttpStatus.CREATED);
     }
 
@@ -46,7 +46,7 @@ public class BrandController {
                 .totalPages(result.getTotalPages())
                 .currentPage(result.getNumber())
                 .isLast(result.isLast())
-                .data(result.getContent())
+                .content(result.getContent())
                 .build(), HttpStatus.OK);
     }
 
@@ -57,7 +57,7 @@ public class BrandController {
                 .status(HttpStatus.OK.value())
                 .message("Get brand with id: "+ id +" successfully !")
                 .timestamp(LocalDateTime.now())
-                .data(brandService.getBrandById(id))
+                .content(brandService.getBrandById(id))
                 .build(), HttpStatus.OK);
     }
 }

@@ -29,7 +29,7 @@ public class CustomerAddressController {
                 .status(HttpStatus.CREATED.value())
                 .message("Thêm địa chỉ thành công !!")
                 .timestamp(LocalDateTime.now())
-                .data(customerAddressService.createCustomerAddressWithIdCustomer(idCustomer, customerAddressDTO))
+                .content(customerAddressService.createCustomerAddressWithIdCustomer(idCustomer, customerAddressDTO))
                 .build(), HttpStatus.CREATED);
     }
 
@@ -49,7 +49,7 @@ public class CustomerAddressController {
                 .totalElements(result.getTotalElements())
                 .currentPage(result.getNumber())
                 .isLast(result.isLast())
-                .data(result.getContent())
+                .content(result.getContent())
                 .build(),HttpStatus.OK);
     }
 
